@@ -1,4 +1,6 @@
 # HTML/CSS exercise
+
+This exercise is part of my studies at the BHT.
  
 For educational use only. Also see LICENSE file.
 
