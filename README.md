@@ -1,6 +1,6 @@
 # HTML/CSS exercise
 
-This exercise is part of my studies at the BHT.
+This exercise is part of my studies at the BHT. It is a mobile app that showcases AJAX list behaviour.
  
 For educational use only. Also see LICENSE file.
 
