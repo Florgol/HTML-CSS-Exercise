@@ -1,0 +1,307 @@
+/* variable declarations */
+:root {
+    --myapp-color-background: limegreen; 
+    --myapp-text-color: black; /* 1 (e) */
+    --myapp-header-height: 60px;
+    --myapp-footer-height: 50px;
+    --myapp-header-background: white; /* 1 (d) */
+    --myapp-main-background: white; /* 1 (d) */
+    --myapp-footer-background: white; /* 1 (d) */
+    --myapp-header-border-color: #c0c0c0;
+    --myapp-footer-border-color: #f09e40;
+    --myapp-imgbutton-size: 40px;
+    --myapp-imgbutton-imgsize: 30px;
+    --myapp-default-space: 10px;
+    --myapp-li-height: 120px;
+    --myapp-li-imgsize: 90px;
+    --myapp-li-description-row-height: calc( var(--myapp-li-imgsize) / 3);
+    --myapp-playarrow-imgsize: 24px;
+    --margin-top-to-center-playarrow: calc(( var(--myapp-li-description-row-height) - var(--myapp-playarrow-imgsize)) / 2);
+}
+
+html, body {
+    background-color: var(--myapp-color-background);
+    margin: 0px;
+    font-family: "Avenir Medium", sans-serif;
+    color: var(--myapp-text-color);
+    width: 100%; /* 1 (b) */
+    max-width: 100%; /* 1 (b) */
+    overflow-x: hidden; /* 1 (b) - Overkill?*/
+    height: 100%; /* 1 (a) */
+    max-height: 100%; /* 1 (a) */
+    overflow-y: hidden; /* 1 (a) */
+}
+
+/* block text selection */
+
+* {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+header {
+    height: var(--myapp-header-height);
+    background-color: var(--myapp-header-background);
+    border-bottom: 3px solid var(--myapp-header-border-color); /* 2 (c) */
+}
+
+header h1 {
+    margin: 0;
+    font-weight: normal;
+    line-height: var(--myapp-header-height); /* 2 (d) */
+    font-size: 20pt;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+main {
+    /* height: gesamthöher der Anzeigefläche - (höhe header + höhe foother) */
+    height: calc(100vh - (var(--myapp-header-height) + var(--myapp-footer-height))); /* 1 (a) */
+    background-color: var(--myapp-main-background);
+    overflow-y: scroll; /* 1 (c) */
+}
+
+footer {
+    height: var(--myapp-footer-height);
+    background-color: var(--myapp-footer-background);
+    border-top: 3px solid var(--myapp-footer-border-color); /* 3 (a) */
+}
+
+/* buttons */
+
+/* 2 (a) und 3 (b) */
+.myapp-align-left {
+    float: left;
+}
+
+/* 2 (b) und 3 (b) */
+.myapp-align-right {
+    float: right;
+}
+
+button {
+    background-color: transparent;
+    font-size: 0;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: var(--myapp-imgbutton-imgsize) var(--myapp-imgbutton-imgsize);
+    height: var(--myapp-imgbutton-size);
+    width: var(--myapp-imgbutton-size);
+    filter: invert(30%);
+}
+
+header .myapp-imgbutton {
+    margin-top: calc((var(--myapp-header-height) - var(--myapp-imgbutton-size)) / 2); /* 2 (d) */
+}
+
+footer .myapp-imgbutton {
+    margin-top: calc((var(--myapp-footer-height) - var(--myapp-imgbutton-size)) / 2); /* 3 (c) */
+}
+
+.myapp-img-menu {
+    background-image: url("./img/png/menu_FILL0_wght400_GRAD0_opsz24.png");
+}
+
+.myapp-img-add {
+    background-image: url("./img/png/add_FILL0_wght400_GRAD0_opsz24.png");
+}
+
+.myapp-img-gridview {
+    background-image: url("./img/png/grid_view_FILL0_wght400_GRAD0_opsz24.png");
+}
+
+.myapp-img-refresh {
+    background-image: url("./img/png/sync_FILL0_wght400_GRAD0_opsz24.png");
+}
+
+.myapp-img-logout {
+    background-image: url("./img/png/logout_FILL0_wght400_GRAD0_opsz24.png");
+}
+
+.myapp-img-edit {
+    background-image: url("./img/png/edit_FILL0_wght400_GRAD0_opsz24.png");
+}
+
+/* paragraphs */
+
+p {
+    margin: 0;
+    padding: var(--myapp-default-space);
+}
+
+/* Buffer 4 (a)*/
+
+.buffer {
+    height: 5px;
+    background-color: #a0a0a0;
+    width: 100%; 
+}
+
+/* Listenansicht */
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    height: var(--myapp-li-height);
+    line-height: var(--myapp-li-height);
+    border-bottom: 1px solid var(--myapp-header-border-color); /* 4 (b) und (c)*/
+    padding-left: var(--myapp-default-space); /* 4 (d) */
+}
+
+li h2 {
+    font-weight: normal;
+    font-size: 18pt;
+    margin: 0;
+    margin-left: var(--myapp-default-space);
+}
+
+li .myapp-imgbutton {
+    margin-top: calc((var(--myapp-li-height) - var(--myapp-imgbutton-size)) / 2);
+}
+
+li .li-album-img {
+    height: var(--myapp-li-imgsize); /* 4 (e) */
+    width: var(--myapp-li-imgsize); /* 4 (e) */
+    margin-top: calc((var(--myapp-li-height) - var(--myapp-li-imgsize)) / 2);
+    object-fit: cover; /* 4 (e) */ /* Beschriftung der Aufgabenteile wird ab hier nicht fortgeführt */
+}
+
+.myapp-li-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.myapp-li-right-column {
+    flex-grow: 1;
+}
+
+.myapp-row-container {
+    display: flex;
+    flex-direction: row;
+    line-height: var(--myapp-li-description-row-height);
+    color: grey;
+}
+
+.myapp-li-first-row {
+    margin-top: calc( (var(--myapp-li-height) - var(--myapp-li-imgsize)) / 2);
+    justify-content: space-between;
+    height: var(--myapp-li-description-row-height);
+    font-size: 0.9rem;
+}
+
+.myapp-li-first-row div {
+    line-height: 1;
+}
+
+.myapp-li-img-src, .myapp-li-title {
+    padding-left: 6px;
+}
+
+.myapp-li-date {
+    padding-right: 8px;
+}
+
+.myapp-li-title {
+    font-size: 1.4rem;
+    color: black;
+}
+
+
+.myapp-li-playarrow {
+    width: var(--myapp-playarrow-imgsize);
+    height: var(--myapp-playarrow-imgsize);
+    margin-top: var(--margin-top-to-center-playarrow);
+}
+
+.myapp-li-options {
+    width: var(--myapp-playarrow-imgsize);
+    height: var(--myapp-playarrow-imgsize);
+    margin-left: auto;
+    margin-top: calc( var(--margin-top-to-center-playarrow) + (var(--myapp-playarrow-imgsize) / 3));
+}
+
+
+/* tiles */
+.myapp-tiles li * {
+    display: none;
+}
+
+.myapp-tiles li {
+    display: inline-block;
+    margin-left: var(--myapp-default-space);
+    margin-top: var(--myapp-default-space);
+    border: none;
+    --myapp-tiles-columns: 5;
+    /* Breite: (Gesamtbreite der Ansicht - (Anzahl der Kacheln pro Zeile +1)) / (Anzahl der Kacheln pro Zeile) */
+    --myapp-tiles-size: calc((100vw - ((var(--myapp-tiles-columns) + 1) * var(--myapp-default-space))) / var(--myapp-tiles-columns)); 
+    width: var(--myapp-tiles-size);
+    height: var(--myapp-tiles-size);
+    padding: 0;
+    float: left;
+}
+
+.myapp-tiles .li-album-img {
+    display: block;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* positioning options button */
+
+.myapp-tiles .myapp-li-container {
+    position: relative; /* Establishes a positioning context for the children */
+}
+
+.myapp-tiles .myapp-li-right-column,
+.myapp-tiles .myapp-li-third-row,
+.myapp-tiles .myapp-li-options {
+    display: block;
+}
+
+.myapp-tiles .myapp-li-options {
+    position: absolute;
+    bottom: 6px;
+    right: 2px;
+}
+
+
+@media (max-width: 500px) {
+    .myapp-tiles li {
+        --myapp-tiles-columns: 4;
+    }
+}
+
+@media (min-width: 500px) {
+    .myapp-tiles li {
+        --myapp-tiles-columns: 5;
+    }
+}
+
+@media (min-width: 700px) {
+    .myapp-tiles li {
+        --myapp-tiles-columns: 7;
+    }
+}
+
+/* fading */
+
+.myapp-faded {
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+ul {
+    opacity: 1;
+    transition: 1s;
+}
+
+/* .myapp-li-template-hide {
+    display: none;
+} */

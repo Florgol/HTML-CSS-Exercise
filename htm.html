@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>IAM Greenfield</title>
+    <!-- add style -->
+    <link rel="stylesheet" href="css/css.css"/>
+    <!-- add interaction control -->
+    <script type="application/javascript" src="js/jsl.js"></script>
+    <script type="application/javascript" src="js/jsr.js"></script>
+    <!-- add the "library" script wrapping XMLHttpRequest -->
+    <script type="application/javascript" src="js/lib/xhr.js"></script>
+</head>
+<body>
+    <header>
+        <button class="myapp-imgbutton myapp-img-menu myapp-align-left ">menu</button>
+        <h1>Medien</h1>
+        <button class="myapp-imgbutton myapp-img-add myapp-align-right">add</button>
+        <button class="myapp-imgbutton myapp-img-gridview myapp-align-right">gridview</button>
+    </header>
+
+    <main>
+        <div class="buffer"></div>
+        <ul id="myapp-main-list">
+            <template>
+                <li class="myapp-li-container">
+
+                    <img src="data/img/jpeg/100_100.jpeg" class="myapp-align-left li-album-img"/>                
+                    <div class="myapp-li-right-column">
+                        <div class="myapp-li-first-row myapp-row-container">
+                            <div class="myapp-li-img-src">lorempixel.com</div>
+                            <div class="myapp-li-date">12.02.2023</div>
+                        </div>
+                        <div class="myapp-li-second-row myapp-row-container">
+                            <div class="myapp-li-title">Title1</div>
+                        </div>
+                        <div class="myapp-li-third-row myapp-row-container">
+                            <img src="css/img/png/play_arrow_FILL0_wght400_GRAD0_opsz24.png" class="myapp-align-left myapp-li-playarrow"/>
+                            <div class="myapp-li-tagcount">8989</div>
+                            <img src="css/img/png/more_vert_FILL0_wght400_GRAD0_opsz24.png" class="myapp-li-options">
+                        </div>
+                    </div>
+
+                </li>
+            </template>
+
+           
+<!--             <li><img src="data/img/jpeg/100_200.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/100_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/100_200.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>            <li><img src="data/img/jpeg/100_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/100_200.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>            <li><img src="data/img/jpeg/100_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/100_200.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>            <li><img src="data/img/jpeg/100_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/100_200.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>            <li><img src="data/img/jpeg/100_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/100_200.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li>
+            <li><img src="data/img/jpeg/300_100.jpeg" class="myapp-align-left"/><h2 class="myapp-align-left">test</h2><button class="myapp-imgbutton myapp-img-edit myapp-align-right">edit</button></li> -->
+
+
+        </ul>
+<!--         <p>
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+            dubi dubi du dubi dubi du dubi dubi du dubi dubi du
+        </p> -->
+    </main>
+
+    <footer>
+        <button class="myapp-imgbutton myapp-img-logout myapp-align-left">refresh</button>
+        <button class="myapp-imgbutton myapp-img-refresh myapp-align-right">refresh</button>
+    </footer>
+</body>
+</html>
